@@ -1,23 +1,24 @@
 import React, { useState } from "react";
+import { PlusCircleIcon, VideoCameraIcon } from "@heroicons/react/24/solid";
 
 export default function Nav() {
-    const [navOpen, setNavOpen] = useState(true)
+    const [navOpen, setNavOpen] = useState(false)
     const handleNavOpen = ()=>{
          setNavOpen((prev) => !prev);
     }
   return (
     <aside
-      className={`flex mt-52 items-center text-white ${
+      className={`z-10 flex mt-52 items-center text-white ${
         navOpen ? "m-4 rightm" : " leftm"
       }`}
     >
-      <nav className="h-56 w-20 flex-col border-2 shadow-white rounded-3xl">
+      <nav className="h-52 w-20 flex-col border-2 shadow-white rounded-3xl">
         <div className="p-4 pb-2 flex justify-between items-center">
-          <img
-            className=" cursor-pointer rounded-lg"
-            src="https://www.krea.ai/api/img?f=webp&i=https%3A%2F%2Ftest1-emgndhaqd0c9h2db.a01.azurefd.net%2Fimages%2Fc493eac8-7853-4d3b-a5e8-013118c9ee86.png"
-            alt=""
-          />
+          <img className=" cursor-pointer rounded-lg" src="/logo.webp" alt="" />
+        </div>
+        <div className="flex-2 p-3">
+          <PlusCircleIcon className=" text-gray-500 hover:text-white cursor-pointer" />
+          <VideoCameraIcon className="mt-2 size-11 m-auto text-gray-500 hover:text-white cursor-pointer" />
         </div>
       </nav>
       <div
