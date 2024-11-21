@@ -12,9 +12,9 @@ export default function Nav() {
         navOpen ? "m-4 rightm" : " leftm"
       }`}
     >
-      <nav className="h-52 w-20 flex-col border-2 shadow-white rounded-3xl">
+      <nav className="h-52 w-20 flex-col border-2 shadow-white shadow-sm rounded-3xl">
         <div className="p-4 pb-2 flex justify-between items-center">
-          <img className=" cursor-pointer rounded-lg" src="/logo.webp" alt="" />
+          <img className=" cursor-pointer rounded-lg" src="/logo.webp" alt="Logo" />
         </div>
         <div className="flex-2 p-3">
           <PlusCircleIcon className=" text-gray-500 hover:text-white cursor-pointer" />
