@@ -1,0 +1,12 @@
+body{
+  background-color: black;
+}
+
+.leftm{
+  margin-left: -70px;
+  transition: ease-in-out .3s;
+}
+.rightm{
+  /* margin-left: -70px; */
+  transition: ease-in-out .3s;
+}
