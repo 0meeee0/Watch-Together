@@ -5,26 +5,41 @@ import { Link, useNavigate } from "react-router-dom";
 export default function Signup() {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
+  const [error, setError] = useState<string | null>(null);
   let navigate = useNavigate()
-  
+
   const handleName = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   };
+
   const handleEmail = (e: ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault()
+    e.preventDefault();
     setEmail(e.target.value);
   };
-  const Register = async(e: any) =>{
-    try{
-      e.preventDefault()
-      const user = await axios.post("http://localhost:3001/user/create", {name: name, email: email});
-      console.log(user.data)
-      navigate('/signin')
-    }catch(e){
-        console.log(e)
+
+  const Register = async (e: any) => {
+    try {
+      e.preventDefault();
+      setError(null);
+
+      const user = await axios.post("http://localhost:3001/user/create", {
+        name: name,
+        email: email,
+      });
+      console.log(user.data);
+      navigate("/signin");
+    } catch (e: any) {
+      if (e.response && e.response.status === 409) {
+        setError("User with this email already exists");
+      } else {
+        setError("An error occurred. Please try again.");
       }
+      console.log(e);
     }
-  const isEmpty = name !== '' && email !== ''
+  };
+
+  const isEmpty = name !== "" && email !== "";
+
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="w-full max-w-md p-8 bg-black text-white border border-gray-700 rounded-lg shadow-lg">
@@ -57,7 +72,9 @@ export default function Signup() {
               type="email"
               id="email"
               placeholder=" "
-              className="w-full px-4 pt-5 pb-2 bg-black border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 peer"
+              className={`w-full px-4 pt-5 pb-2 bg-black border ${
+                email === error ? "border-red-500" : "border-gray-600"
+              } rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 peer`}
             />
             <label
               htmlFor="email"
@@ -67,13 +84,15 @@ export default function Signup() {
             </label>
           </div>
 
+          {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+
           <button
             type="submit"
             className={`w-full py-3 bg-gray-500 text-black font-bold rounded-full ${
               isEmpty
                 ? "hover:bg-white transition-all duration-300"
-                : "cursor-"
-            } `}
+                : "cursor-not-allowed opacity-50"
+            }`}
             disabled={!isEmpty}
           >
             Next
