@@ -15,6 +15,8 @@ export default function Signin() {
         email: email,
       });
       console.log(user.data);
+      let name = user.data.name
+      localStorage.setItem("name", name)
     } catch (e) {
       console.log(e)
     }
