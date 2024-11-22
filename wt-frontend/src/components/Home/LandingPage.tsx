@@ -18,9 +18,9 @@ export default function LandingPage() {
       <main className="w-full flex flex-col md:flex-row gap-2 items-center justify-center px-6 md:px-16 mt-16">
         <div className="md:w-1/2 flex justify-center">
           <img
-            src="/logo.webp"
+            src="/logo2.webp"
             alt="Watch Together Logo"
-            className="w-52 md:w-80 lg:w-96 object-contain shadow-lg rounded-lg"
+            className="w-52 md:w-80 lg:w-96 object-contain shadow-lg rounded-3xl"
           />
         </div>
 

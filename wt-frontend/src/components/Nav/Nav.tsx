@@ -17,8 +17,8 @@ export default function Nav() {
           <img className=" cursor-pointer rounded-lg" src="/logo.webp" alt="Logo" />
         </div>
         <div className="flex-2 p-3">
-          <PlusCircleIcon className=" text-gray-500 hover:text-white cursor-pointer" />
-          <VideoCameraIcon className="mt-2 size-11 m-auto text-gray-500 hover:text-white cursor-pointer" />
+          <PlusCircleIcon className=" text-gray-500 hover:text-white cursor-pointer transition" />
+          <VideoCameraIcon className="mt-2 size-11 m-auto text-gray-500 hover:text-white cursor-pointer transition" />
         </div>
       </nav>
       <div
