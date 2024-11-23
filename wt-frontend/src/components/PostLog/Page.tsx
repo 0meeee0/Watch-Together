@@ -5,6 +5,8 @@ import Nav from "../Nav/Nav";
 export default function Page() {
     const name = localStorage.getItem('name')
   return (
+    <div>
+
     <header className="border-b border-white/10 p-4">
       <div className="flex justify-between items-center max-w-7xl mx-auto">
         <h1 className="text-xl font-bold text-white">Welcome {name}</h1>
@@ -13,7 +15,8 @@ export default function Page() {
           Create Room
         </button>
       </div>
-      <Nav/>
     </header>
+      <Nav/>
+    </div>
   );
 }
