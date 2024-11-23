@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { ChangeEvent, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Signin() {
   const [email, setEmail] = useState<string>('')
+  const navigate = useNavigate()
   const handleEmail = (e: ChangeEvent<HTMLInputElement>) =>{
     e.preventDefault()
     setEmail(e.target.value)
@@ -17,6 +18,7 @@ export default function Signin() {
       console.log(user.data);
       let name = user.data.name
       localStorage.setItem("name", name)
+      navigate('/Welcome')
     } catch (e) {
       console.log(e)
     }
